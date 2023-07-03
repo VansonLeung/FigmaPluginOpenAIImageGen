@@ -1,0 +1,12 @@
+{
+  "name": "OpenAI Image Gen",
+  "id": "1218675028371563970",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}

@@ -1,0 +1,30 @@
+<h2>OpenAI Image Creator</h2>
+<p>Prompt: <br/><textarea id="prompt" style="width: 100%; height: 100px;">A chibi style dark magician</textarea></p>
+<p>Count: <input id="count" value="5"></p>
+<p>Size: <input id="size" value="256"></p>
+<p>yIndex: <input id="yIndex" value="0"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const prompt = document.getElementById('prompt').value;
+  const count = parseInt(document.getElementById('count').value, 10);
+  const size = parseInt(document.getElementById('size').value, 10);
+  const yIndex = parseInt(document.getElementById('yIndex').value, 10);
+  window.parent.postMessage({ pluginMessage: { 
+    type: 'create-rectangles', 
+    prompt, 
+    count, 
+    size, 
+    yIndex,
+  } }, '*')
+
+  document.getElementById('yIndex').value = yIndex + 1;
+}
+
+document.getElementById('cancel').onclick = () => {
+  window.parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
